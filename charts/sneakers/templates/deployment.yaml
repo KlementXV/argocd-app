@@ -50,9 +50,18 @@ spec:
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+        - name: content-modifier
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args: ["echo 'Sidecar Content!' > /shared-data/index.html; sleep 3600"]
+          volumeMounts:
+          - name: shared-data
+            mountPath: /shared-data
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
+        - name: shared-data
+          emptyDir: {}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

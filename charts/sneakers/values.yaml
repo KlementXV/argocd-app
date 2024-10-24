@@ -79,16 +79,14 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+volumes:
+- name: shared-data
+      emptyDir: {}
 
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+volumeMounts: 
+- name: shared-data
+  mountPath: "/usr/share/nginx/html"
+  readOnly: true
 
 nodeSelector: {}
 
