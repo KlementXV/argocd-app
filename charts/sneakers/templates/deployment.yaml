@@ -34,7 +34,7 @@ spec:
         - name: content-modifier
           image: busybox
           command: ["/bin/sh", "-c"]
-          args: ["echo 'Sidecar Content! with init container' > /shared-data/index.html; sleep 15"]
+          args: ["Hello Anais' > /shared-data/index.html; sleep 15"]
           volumeMounts:
           - name: shared-data
             mountPath: /shared-data
