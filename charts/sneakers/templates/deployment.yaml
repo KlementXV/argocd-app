@@ -53,7 +53,7 @@ spec:
         - name: content-modifier
           image: busybox
           command: ["/bin/sh", "-c"]
-          args: ["echo 'Sidecar Content, VTESTTTT !' > /shared-data/index.html"]
+          args: ["echo 'Sidecar Content! with sleep 15' > /shared-data/index.html; sleep 15"]
           volumeMounts:
           - name: shared-data
             mountPath: /shared-data
