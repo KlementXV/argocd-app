@@ -81,7 +81,7 @@ autoscaling:
 
 volumes:
 - name: shared-data
-      emptyDir: {}
+  emptyDir: {}
 
 volumeMounts: 
 - name: shared-data
